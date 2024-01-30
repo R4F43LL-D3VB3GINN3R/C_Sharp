@@ -13,9 +13,71 @@ namespace RAFAEL002_2
         static void Main(string[] args)
         {
 
-            //-----------------------------------------------
+           Random randonum = new Random();
 
-            /*
+            int random_cpu = randonum.Next(1, 101);
+            int random_player = 0;
+            
+            while (random_cpu != random_player)
+            
+            {
+            
+                Console.WriteLine("Tente adivinhar o número: ");
+                random_player = Convert.ToInt32(Console.ReadLine());
+            
+                if (random_player == random_cpu)
+            
+                {
+            
+                    Console.WriteLine("Numeros Iguais");
+            
+                }
+            
+                else
+            
+                {
+            
+                    if (random_player > random_cpu)
+            
+                    {
+            
+                        Console.WriteLine("O número escolhido ultrapassa o número a ser adivinhado");
+            
+            
+                    }
+                    else
+                    {
+            
+                        Console.WriteLine("O número escolhido é menor do que o número a ser adivinhado");
+            
+            
+                    }
+            
+            
+                }
+            
+            */
+
+        }
+
+    }
+
+}
+
+/-------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
+
+using System.ComponentModel.Design;
+
+namespace RAFAEL002_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+
+        {
+            
             double area;
             float pi;
             float raio;
@@ -28,12 +90,28 @@ namespace RAFAEL002_2
             area = 4 / 3 * pi * raio2;
 
             Console.WriteLine("A área é " + area);
-            */
+           
 
-            //-----------------------------------------------
+        }
 
-            /*
-             * 
+    }
+
+}
+
+/-------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
+
+using System.ComponentModel.Design;
+
+namespace RAFAEL002_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+
+        {
+            
             int num1;
             int cont = 0;
 
@@ -66,8 +144,6 @@ namespace RAFAEL002_2
 
 
             }
-
-            */
 
             //-----------------------------------------------
 
