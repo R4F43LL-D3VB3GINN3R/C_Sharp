@@ -1,0 +1,290 @@
+using Microsoft.VisualBasic;
+using System;
+using System.Diagnostics.Metrics;
+using System.Drawing;
+using System.Runtime.InteropServices;
+
+namespace Tarefa_de_exercícios_de_C__RAFAEL_ALBUQUERQUE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //----------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------
+
+            // #Exercício 1:
+            // * Solicite dois números ao utilizador.
+            // * Calcule a soma dos números.
+            // * Se a soma for ímpar, exiba "Número é Ímpar".
+
+            /*Console.Write("Digite o Primeiro Numero: ");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Segundo Numero: ");
+            int num2 = int.Parse(Console.ReadLine());
+
+            int soma = num1 + num2;
+
+            Console.WriteLine("A soma dos dois numeros e: " + soma);
+
+            if (soma % 2 == 0)
+            {
+                Console.WriteLine("A soma dos dois numeros resulta em um numero par");
+            } else
+            {
+                Console.WriteLine("A soma dos dois numeros resulta em um numero impar");
+            }
+
+            Console.WriteLine("");
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 2:
+            // - Solicite dois números ao uutilizador para divisão.
+            // - Calcule e exiba o resultado da divisão arredondado para 3 casas decimais.
+
+            /*Console.Write("Digite o Primeiro Numero: ");
+            float num1 = float.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Segundo Numero: ");
+            float num2 = float.Parse(Console.ReadLine());
+
+            if (num1 == 0 || num2 == 0) {
+
+                Console.WriteLine("Nao e possivel realizar a divisao");
+                return;
+
+            }
+
+            float divisao = num1 / num2;
+
+            string formatacao = divisao.ToString("F3");
+
+            Console.WriteLine("O resultado da divisao e: " + formatacao);
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 3:
+            // - Solicite um número ao utilizador.
+            // - Se o número for maior que 10, emita um sinal sonoro e exiba "Erro, valor maior do que o aceitável".
+            // - Caso contrário, calcule o resultado multiplicando o número por π(3.14) e exiba.
+
+            Console.Write("Digite um Numero: ");
+            float num1 = float.Parse(Console.ReadLine());
+
+            if (num1 > 10)
+            {
+                Console.Beep();
+                Console.WriteLine("Valor maior que o aceitavel");
+                Console.Beep();
+
+            } else
+            {
+                Console.WriteLine("Valor do numero e: " + (num1 * 3.14f));
+            }
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 4:
+            //  - Exiba os primeiros 10 números naturais.
+
+            Console.WriteLine("1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 5:
+            // - Exiba os primeiros 10 números naturais.
+            // - Calcule e exiba a soma desses números.
+
+            int soma = 0;
+
+            for (int i = 0; i<=10; i++)
+            {
+                soma = i + i;
+            }
+
+            Console.WriteLine("A soma dos numeros naturais e: " + soma
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 6:
+            // - Solicite ao utilizador o número de termos.
+            // - Calcule e exiba a soma dos números naturais até o número de termos especificado.
+
+            Console.Write("Digite o numero de termos: ");
+            int num1 = int.Parse(Console.ReadLine());
+            int somatermos = 0;
+
+            for (int i = 0; i <= num1; i++)
+            {
+                somatermos = i + i;
+            }
+
+            Console.WriteLine("A soma de termos e: " + somatermos);
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 7:
+            // - Exiba os 10 números naturais ao usuário.
+            // - Calcule e exiba a soma e a média desses números.
+
+            Console.WriteLine("1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
+
+            int somatermos = 0;
+
+            for (int i = 0; i <= 10; i++)
+            {
+                somatermos = i + i;
+            }
+
+            int mediatermos = somatermos / 10;
+
+            Console.WriteLine("A soma de termos e: " + somatermos);
+            Console.WriteLine("A media de termos e: " + mediatermos);
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 8:
+            // - Solicite ao utilizador o número de termos.
+            // - Exiba os números e seus cubos até o número de termos especificado.
+
+
+            Console.Write("Digite o numero de termos: ");
+            int num1 = int.Parse(Console.ReadLine());
+            int somatermos = 0;
+
+            Console.Write("Os cubos de i sao: ");
+
+            for (int i = 0; i <= num1; i++)
+            {
+                somatermos = i + i;
+
+                Console.Write("[" + (i * i * i) + "]");
+
+            }
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 9:
+            // - Solicite ao usuário o número de termos.
+            // - Utilizando uma função, exiba os cubos dos números até o número de termos especificado.
+
+            void cubo_termos(int num1)
+            {
+
+                for (int i = 0; i < num1; i++)
+                {
+                    Console.Write("[" + (i * i * i) + "]");
+                }
+
+            }
+
+            Console.Write("Digite o numero de termos: ");
+            int num1 = int.Parse(Console.ReadLine());
+
+            cubo_termos(num1);
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 11 - Conversor de Moeda:
+
+            // - Solicite ao utilizador que insira uma quantidade em reais.
+            // - Converta essa quantia para dólares usando uma taxa de câmbio fixa.
+            // - Exiba o valor em dólares.
+
+            Console.WriteLine("Digite uma quantidade em reais: ");
+            float reais = float.Parse(Console.ReadLine());
+
+            float reais_dolares = reais * 0.20f;
+
+            Console.WriteLine("A conversao de reais para dolares sera: " + reais_dolares);
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            //Exercício 12 - Tabuada:
+
+            // - Peça ao utilizador para inserir um número.
+            // - Exiba a tabuada desse número de 1 a 10.
+
+            Console.Write("Digite um numero: ");
+            int num1 = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i<=10; i++)
+            {
+
+                int resultado = num1 * i;
+
+                Console.WriteLine(num1 + " X " + i + " = " + resultado);
+
+            }
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 13 - Calculadora de IMC(Índice de Massa Corporal):
+            // - Peça ao utilizador para inserir seu peso(em kg) e altura(em metros).
+            // -  o IMC usando a fórmula: IMC = peso / (altura * altura).
+            // - Exiba o IMC
+
+            Console.WriteLine("Inserir Peso: ");
+            float peso = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Inserir Altura: ");
+            float altura = float.Parse(Console.ReadLine());
+
+            float IMC = peso / (altura * altura);
+
+            Console.WriteLine("Seu IMC é: " + IMC);
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+            // Exercício 15 - Calculadora de Fatorial:
+            // - Peça ao utilizador para inserir um número.
+            // - Calcule o fatorial desse número e exiba o resultado.
+
+            Console.WriteLine("Inserir Numero: ");
+            int num1 = int.Parse(Console.ReadLine());
+            int resultado = 1;
+
+            for (int i = num1; i > 0; i--)
+            {
+
+                resultado *= i;
+
+            }
+
+            Console.WriteLine((resultado)); */
+
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+
+        }
+    }
+}
