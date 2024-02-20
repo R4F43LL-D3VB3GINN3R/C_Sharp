@@ -1,0 +1,453 @@
+namespace Tarefa_de_dia_20_RAFAEL_ALBUQUERQUE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //----------------------------------------------
+            // 1 - Criação de uma Lista
+            //----------------------------------------------
+            List<int> integers = new List<int>();
+            //----------------------------------------------
+
+            //----------------------------------------------
+            // 2 - Adicionar e Remover Elementos
+            //----------------------------------------------
+            //[Adicionar]
+            integers.Add(1);
+            integers.Add(2);
+            integers.Add(3);
+            integers.Add(4);
+            integers.Add(5);
+            //[Adicionar pelo Index]
+            integers.Insert(5, 6);
+            integers.Insert(6, 7);
+            integers.Insert(7, 8);
+            integers.Insert(8, 9);
+            integers.Insert(9, 10);
+            //[Verificação de Existência de Elementos]
+            bool find_elmt = integers.Contains(1);
+            //[Verificação de Index de um Elemento]
+            int pos_elmt = integers.IndexOf(1);
+            //[Remover Elemento do Index]
+            integers.RemoveAt(9);
+            //[Remover Elemento Específico]
+            integers.Remove(9);
+            //[Contagem de Elementos]
+            int length = integers.Count;
+            //----------------------------------------------
+
+            //----------------------------------------------
+            // 3 - Iterar pela Lista
+            //----------------------------------------------
+
+            Console.WriteLine(" ");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Questão 1,2,3 e 4");
+            Console.WriteLine("---------------------------");
+
+            for (int i = 0; i <= integers.Count; i++)
+            {
+                Console.Write("[" + i + "]");
+            }
+
+            //Ou...
+
+            Console.WriteLine(" ");
+
+            foreach (int integer in integers)
+            {
+                Console.Write("[" + integer + "]");
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("---------------------------");
+
+            //----------------------------------------------
+
+            //----------------------------------------------
+            // 4 - Ordenação da Lista
+            //----------------------------------------------
+            //[Ordem Crescente]
+            integers.Sort();
+            //----------------------------------------------
+
+            /*
+            //Declaração de uma Expressão Lambda...
+            Func<int, int> num_double = num => num * 2;
+
+            //Aplicação da Expressão...
+            int res = num_double(2);
+
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Lambda Expression is: " + res);
+            Console.WriteLine("---------------------------");
+
+            //Nova Lista...
+            List<int> integers2 = new List<int>() { 11, 12, 13, 14, 15 };
+
+            //Filtrar os Números Pares de Uma Lista Usando uma Expressão Lambda...
+            List<int> listpairs = integers2.Where(num => num % 2 == 0).ToList();
+
+            Console.WriteLine("---------------------------");
+            Console.Write("Pair Numbers List: ");
+
+            foreach (int num in listpairs)
+            {
+                Console.Write("[" + num + "]");
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine("---------------------------");
+
+            //----------------------------------------------
+            //Declarar uma Expressão Lambda com Corpo de Código...
+            Func<int, int> calculate_square = num =>
+            {
+                int square = num * num;
+                return square;
+            };
+
+            int result2 = calculate_square(2);
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Lambda Expression is: " + result2);
+            Console.WriteLine("---------------------------");
+
+            //----------------------------------------------
+
+            int day_week = 3;
+            string name_day = "";
+
+            switch (day_week)
+            {
+                case 1:
+
+                    name_day = "Monday";
+                    break;
+
+                case 2:
+
+                    name_day = "Tuesday";
+                    break;
+
+                case 3:
+
+                    name_day = "Wednesday";
+                    break;
+
+                case 4:
+
+                    name_day = "Thursday";
+                    break;
+
+                case 5:
+
+                    name_day = "Friday";
+                    break;
+
+                case 6:
+
+                    name_day = "Saturday";
+                    break;
+
+                case 7:
+
+                    name_day = "Sunday";
+                    break;
+
+                default:
+                    name_day = "Invalid Name";
+                    break;
+
+            }
+
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("THe Day of the Week is: " + name_day);
+            Console.WriteLine("---------------------------");
+
+            */
+
+            Console.WriteLine(" ");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Questão 1 - [Intermediário]");
+            Console.WriteLine("---------------------------");
+
+            Func<List<int>, int> media_elmts = list =>
+            {
+                int sum = 0;
+                int k = 0;
+
+                for (int i = 0; i <= list.Count; i++)
+                {
+
+                    sum = sum + i;
+                    k = k + 1;
+
+                }
+
+                int media = sum / k;
+
+                return media;
+            };
+
+            List<int> mylist = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            int media = media_elmts(mylist);
+
+            Console.WriteLine("A média é: " + media);
+            Console.WriteLine("---------------------------");
+
+            //----------------------------------------------
+            //----------------------------------------------
+            //----------------------------------------------
+
+            Console.WriteLine(" ");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Questão 2 - [Intermediário]");
+            Console.WriteLine("---------------------------");
+
+            Func<List<int>, int, string> elmts_exists = (list, num) =>
+            {
+
+                string exists = "";
+
+                if (list.Contains(num)) {
+
+                    exists = "O elemento existe na Lista";
+                    return exists;
+
+                } else
+                {
+                    exists = "O elemento não existe na Lista";
+                    return exists;
+                }
+
+            };
+
+            string exists = elmts_exists(mylist, 2);
+
+            Console.WriteLine(exists);
+            Console.WriteLine("---------------------------");
+
+            //----------------------------------------------
+            //----------------------------------------------
+            //----------------------------------------------
+
+            Console.WriteLine(" ");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Questão 3 - [Intermediário]");
+            Console.WriteLine("---------------------------");
+
+            Func<List<int>, List<int>> remove_equals = list =>
+            {
+                List<int> list2 = new List<int>();
+
+                foreach (var item in list)
+
+                {
+                    if (!list2.Contains(item)) // Verifica se o item já está na nova lista
+                    {
+
+                        list2.Add(item); // Adiciona apenas se não estiver
+
+                    }
+
+                }
+
+                return list2;
+
+            };
+
+            List<int> newlist = new List<int>() { 1, 2, 2, 3, 3, 4, 4, 5, 5 };
+            List<int> newlist2 = remove_equals(newlist);
+
+            for (int i = 0; i < newlist2.Count; i++) // Corrigido para evitar exceção de índice fora dos limites
+            {
+                Console.Write("[" + newlist2[i] + "]");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("---------------------------");
+
+            //----------------------------------------------
+            //----------------------------------------------
+            //----------------------------------------------
+
+            static void insert_product(List<string> list)
+            {
+
+                char resp = ' ';
+
+                do
+                {
+                    Console.Write("Insira um Produto: ");
+                    string product = Console.ReadLine();
+
+                    list.Add(product);
+
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("Produtos na lista:");
+                    Console.WriteLine("---------------------------");
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        Console.Write("[" + list[i] + "]");
+                    }
+                    Console.WriteLine();
+
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("Quer continuar inserindo[S][N]: ");
+                    Console.WriteLine("---------------------------");
+
+                    resp = Console.ReadKey().KeyChar;
+
+                    Console.WriteLine();
+
+                } while (resp == 'S' || resp == 's');
+
+            }
+
+            static void remove_product(List<string> list)
+            {
+
+                char resp = ' ';
+
+                do
+                {
+                    Console.Write("Qual produto deseja remover?: ");
+                    string product = Console.ReadLine();
+
+                    int index = list.IndexOf(product);
+                    if (index != -1)
+                    {
+
+                        list.RemoveAt(index);
+                        Console.WriteLine($"Produto '{product}' removido com sucesso!");
+
+                    }
+                    else
+                    {
+
+                        Console.WriteLine($"Produto '{product}' não encontrado na lista.");
+
+                    }
+
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("Quer continuar Removendo? [S][N]: ");
+                    Console.WriteLine("---------------------------");
+
+                    resp = Console.ReadKey().KeyChar;
+
+                    Console.WriteLine();
+
+                } while (resp == 'S' || resp == 's');
+
+            }
+
+                Console.WriteLine(" ");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("Questão 4 - [Intermediário]");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("---------------------------");
+
+                int menucursor = 0; // cursor do menu
+                List<string> prodlist = new List<string>() {"Banana", "Laranja", "Limão"};
+
+                while (menucursor != 4) // enquanto o cursor for diferente de 4...
+                {
+
+                Console.WriteLine("<<<<<<<<<<<<<<<<<.:[PROD.SYSTEM.SOFTWARE]:.>>>>>>>>>>>>>>>>");
+                Console.WriteLine("|------------------------------------------------------|");
+                Console.WriteLine("|------------------------------------------------------|");
+                Console.WriteLine("|0.EXIBIR LISTA                                        |");
+                Console.WriteLine("|1.ADICIONAR PRODUTO                                   |");
+                Console.WriteLine("|2.REMOVER PRODUTO                                     |");
+                Console.WriteLine("|3.ATUALIZAR ITENS DA LISTA                            |");
+                Console.WriteLine("|4.SAIR                                                |");
+                Console.WriteLine("|                                                      |");
+                Console.WriteLine("|------------------------------------------------------|");
+                Console.WriteLine("|------------------------------------------------------|");
+                Console.WriteLine(" ");
+                Console.Write("OPTION: ");
+                menucursor = int.Parse(Console.ReadLine()); // insere a opcao desejada.
+
+                Console.WriteLine("...");
+                Console.WriteLine("..");
+                Console.WriteLine(".");
+
+                if (menucursor == 0) // se o cursor do menu for 1...
+                {
+
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("Produtos na lista:");
+                    Console.WriteLine("---------------------------");
+
+                    for (int i = 0; i < prodlist.Count; i++)
+                    {
+
+                        Console.Write("[" + prodlist[i] + "]");
+
+                    }
+                    Console.WriteLine("");
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("");
+
+                }
+                else if (menucursor == 1) // se o cursor do menu for 2...
+                {
+
+                    insert_product(prodlist);
+
+                }
+                else if (menucursor == 2) // se o cursor do menu for 3...
+                {
+                    remove_product(prodlist);
+                }
+                else if (menucursor == 3) // se o cursor do menu for 4...
+                {
+
+                }
+                else if (menucursor == 4) // se o cursor do menu for 4...
+                {
+                    break;
+                }
+                else // do contrário, se o utilizador digitar algum numero que o menu nao recomenda...
+                {
+                    Console.WriteLine(" ");
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("<<<<<<<<<<<<<<<<<.:[PROD.SYSTEM.SOFTWARE]:.>>>>>>>>>>>>>>>>");
+                    Console.WriteLine("|------------------------------------------------------|");
+                    Console.WriteLine("|------------------------------------------------------|");
+                    Console.WriteLine("|                                                      |");
+                    Console.WriteLine("|             ERROR, INSERT A VALID NUMBER.            |"); // exibe mensagem.
+                    Console.WriteLine("|                                                      |");
+                    Console.WriteLine("|------------------------------------------------------|");
+                    Console.WriteLine("|------------------------------------------------------|");
+                    Console.WriteLine(" ");
+                }
+                }
+
+            // mensagem de saida do programa...
+
+            Console.WriteLine(" ");
+            Console.WriteLine("............................................................................");
+            Console.WriteLine("[Thank you for exploring our extensive range of vehicles. ");
+            Console.WriteLine("We look forward to assisting you in finding the perfect vehicle that suits your needs and preferences.");
+            Console.WriteLine("Feel free to reach out to our friendly team for any further inquiries. Safe travels and happy driving!]");
+            Console.WriteLine("............................................................................");
+            Console.WriteLine("[CONTACT]...................................................................");
+            Console.WriteLine("............................................................................");
+            Console.WriteLine("LINKEDIN: https://www.linkedin.com/in/rafael-lopes-b8606a272/");
+            Console.WriteLine("GITHUB: https://github.com/R4F43LL-D3VB3GINN3R/CAR-DEALERSHIP-C-/blob/main/MAIN");
+            Console.WriteLine("EMAIL: @rafalbuquerquecra@gmail.com ");
+            Console.WriteLine("all rights reserved.");
+            Console.WriteLine("............................................................................");
+
+            Console.WriteLine(" ");
+            Console.WriteLine("............................................................................");
+        }
+    }
+}
+
