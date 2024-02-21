@@ -1,0 +1,57 @@
+namespace ATIVIDADE_DIA21_RAFAEL_ALBUQUERQUE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+           ListaNomes lista = new ListaNomes();
+
+            lista[0] = "João";
+            lista[1] = "Maria";
+            lista[2] = "Pedro";
+
+            Console.WriteLine(lista[1]); // Saída: Maria
+
+        }
+
+    }
+
+}
+
+//----------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ATIVIDADE_DIA21_RAFAEL_ALBUQUERQUE
+{
+    internal class ListaNomes
+    {
+
+        private string[] nomes = new string[5];
+
+        public string this[int index]
+        {
+
+            get
+            {
+
+                return nomes[index];
+
+            }
+            set
+            {
+
+                nomes[index] = value;
+
+            }
+
+        }
+
+    }
+
+}
