@@ -1,0 +1,41 @@
+namespace ATIVIDADE_DIA21_RAFAEL_ALBUQUERQUE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Caminho do Arquivo...
+            string CaminhoArquivo = "C:\\Rafael\\arquivo.txt";
+
+            //Criar um objeto de StreamWriter...
+            using(StreamWriter escritor = new StreamWriter(CaminhoArquivo))
+            {
+
+                escritor.WriteLine("Olá Mundo");
+                escritor.WriteLine("Este é um arquivo de texto que estamos a testar para escrever em ficheiro txt");
+
+
+            }
+
+            Console.WriteLine("Ficheiro Escrito com Sucesso!");
+            Console.WriteLine("AGORA VAMOS LER O FICHEIRO QUE ACABAMOS DE CRIAR");
+
+            using(StreamReader leitor = new StreamReader(CaminhoArquivo))
+            {
+
+                string linha;
+
+                while((linha = leitor.ReadLine()) != null) {
+
+                    Console.WriteLine(linha);
+
+                }                     
+
+            }
+
+        }
+
+    }
+
+}
