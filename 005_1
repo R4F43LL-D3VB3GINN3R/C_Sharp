@@ -1,0 +1,82 @@
+namespace ATIVIDADE_DIA21_RAFAEL_ALBUQUERQUE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            //Criação de uma lista de produtos...
+            List<Produto> listarProdutos = new List<Produto>();
+
+            //Adicionar produto à lista...
+            Produto produto1 = new Produto(1, "Camisa", 29.99);
+
+            listarProdutos.Add(produto1);
+
+            Produto produto2 = new Produto(2, "Calças", 59.99);
+
+            listarProdutos.Add(produto2);
+
+            foreach (Produto produto in listarProdutos)
+            {
+
+                produto.ImprimirDetalhes();
+                Console.WriteLine();
+
+            }
+
+            Console.WriteLine("Lista de Produtos: " + listarProdutos.Count);
+
+            //Pedir ao utilizador para inserir um nome de um produto e verificar se ele foi encontrado...
+
+            Produto produtoEncontrado = listarProdutos.Find(p => p.Nome == "Camisa");
+
+            if (produtoEncontrado != null)
+            {
+
+                Console.WriteLine("Produto Encontrado: " + produtoEncontrado.Nome);
+
+            } 
+            else
+            {
+
+                Console.WriteLine("Produto não Encontrado");
+
+            }
+
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ATIVIDADE_DIA21_RAFAEL_ALBUQUERQUE
+{
+    internal class Produto
+    {
+
+        public int Id;
+        public string Nome;
+        public double Preco;
+
+        public Produto(int id, string nome, double preco)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.Preco = preco;
+        }
+
+        public void ImprimirDetalhes()
+        {
+            Console.WriteLine("ID: " + Id);
+            Console.WriteLine("Nome: " +  Nome);
+            Console.WriteLine("Preço: " +  Preco);
+        }
+    }
+}
