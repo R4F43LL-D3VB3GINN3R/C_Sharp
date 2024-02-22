@@ -1,0 +1,260 @@
+namespace ATIVIDADE_DIA22_RAFAEL_ALBUQUERQUE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("-------[Exercício Sobre Arrays - 1]-------");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+
+            Random random = new Random();
+
+            int random_num = random.Next(1, 100);
+            int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int maior = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+
+                array[i] = random_num;
+
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+
+                if (maior < array[i])
+                {
+
+                    maior = array[i];
+
+                }
+
+            }
+
+            Console.WriteLine("Resposta: O maior elemento é o " + maior);
+
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("-------[Exercício Sobre Arrays - 2]-------");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+
+            int[] array2 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            array2.Reverse();
+
+            Console.Write("Resposta: ");
+
+            for (int i = 0; i < 10; i++)
+            {
+
+                Console.Write("[" + array2[i] + "]");
+
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("--[Exercício Sobre Lista de Objetos - 1}--");
+            Console.WriteLine("------------------------------------------");
+
+            List <Aluno> lista = new List<Aluno>();
+
+            Aluno aluno1 = new Aluno("Rafael", 35, 20);
+            Aluno aluno2 = new Aluno("Rafaell", 45, 10);
+            Aluno aluno3 = new Aluno("Rafaelll", 55, 00);
+
+            lista.Add(aluno1);
+            lista.Add(aluno2);
+            lista.Add(aluno3);
+
+            Console.WriteLine("Resposta: ");
+
+            Console.WriteLine("-----------------");
+            Console.WriteLine("Nome: " + aluno1.Nome);
+            Console.WriteLine("Idade: " + aluno1.Idade);
+            Console.WriteLine("Nota: " + aluno1.Nota);
+            Console.WriteLine("-----------------");
+            Console.WriteLine("-----------------");
+            Console.WriteLine("Nome: " + aluno2.Nome);
+            Console.WriteLine("Idade: " + aluno2.Idade);
+            Console.WriteLine("Nota: " + aluno2.Nota);
+            Console.WriteLine("-----------------");
+            Console.WriteLine("-----------------");
+            Console.WriteLine("Nome: " + aluno3.Nome);
+            Console.WriteLine("Idade: " + aluno3.Idade);
+            Console.WriteLine("Nota: " + aluno3.Nota);
+            Console.WriteLine("-----------------");
+
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("--[Exercício Sobre Lista de Objetos - 2]--");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+
+            Aluno media = new Aluno();
+
+            media.media_notas(aluno1.Nota, aluno2.Nota, aluno3.Nota);
+
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("-----[Exercício Sobre Indexadores - 1]----");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+
+            Console.WriteLine("Resposta: ");
+            Console.WriteLine();
+
+            Aluno indexador = new Aluno();
+
+            indexador[0] = new Aluno("Rafael", 35, 20);
+            indexador[1] = new Aluno("Rafaell", 45, 10);
+            indexador[2] = new Aluno("Rafaelll", 55, 0);
+
+            string alunome1 = indexador[0].Nome;
+            string alunome2 = indexador[1].Nome;
+            string alunome3 = indexador[2].Nome;
+
+            Console.WriteLine("Nome: " + alunome1);
+            Console.WriteLine("Nome: " + alunome2);
+            Console.WriteLine("Nome: " + alunome3);
+
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("--[Exercício Sobre Expressões Lambda - 1]-");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+
+            List<double> list = new List<double>() { indexador[0].Nota, indexador[1].Nota, indexador[2].Nota }; 
+
+            Func<List<double>, List<double>> notas_altas = list =>
+            {
+                List<double> list2 = new List<double>();
+
+                foreach (var item in list)
+
+                {
+                    if (item > 8.0f) 
+                    {
+
+                        list2.Add(item); 
+
+                    }
+
+                }
+
+                return list2;
+
+            };
+
+            List<double> notasaltas = notas_altas(list);
+
+            Console.WriteLine("Resposta: ");
+            Console.WriteLine("Notas Altas:");
+            foreach (double nota in notasaltas)
+            {
+
+                Console.Write("{" + nota + "]");
+
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("--------------[Questionario]--------------");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine();
+
+            Console.WriteLine("1 - Aluno");
+            Console.WriteLine("2 - Open");
+            Console.WriteLine("3 - reader");
+            Console.WriteLine("4 - reader");
+            Console.WriteLine("5 - reader");
+            Console.WriteLine("6 - Add");
+            Console.WriteLine("7 - foreach");
+            Console.WriteLine("8 - Aluno ou this");
+
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("------------------------------------------");
+
+        }
+
+    }
+
+}
+
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ATIVIDADE_DIA22_RAFAEL_ALBUQUERQUE
+{
+    internal class Aluno
+    {
+
+        public string Nome;
+        public int Idade;
+        public double Nota;
+        public Aluno[] array = new Aluno[5];
+
+        public Aluno() // Construtor Default...
+        {
+
+            this.Nome = " ";
+            this.Idade = 0;
+            this.Nota = 0.0f;
+
+        }
+
+        public Aluno(string nome, int idade, double nota) // Construtor com argumentos...
+        {
+
+            this.Nome = nome;
+            this.Idade = idade;
+            this.Nota = nota;
+
+        }
+
+        public Aluno this[int index] // Indexador...
+        {
+            get
+            {
+
+                return array[index];
+
+            }
+            set
+            {
+
+                array[index] = value;
+
+            }
+
+        }
+
+        public void media_notas(double nota1, double nota2, double nota3) // Método preguiçoso.
+        {
+
+            double media = 0;
+
+            media = (nota1 + nota2 + nota3) / 3;
+
+            Console.WriteLine("Resposta: A Média das Notas dos Alunos é: " + media);
+
+        }
+
+    }
+
+}
