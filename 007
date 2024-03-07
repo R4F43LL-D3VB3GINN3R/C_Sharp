@@ -1,0 +1,368 @@
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RAFAEL_ANA
+{
+    internal class Cliente
+    {
+
+        public string nif;
+        public string nome;
+        public List<Compras> lista_compras = new List<Compras>();
+
+        public Cliente()
+        {
+
+            nome = "";
+            nif = "";
+
+        }
+
+        public Cliente(string nif, string nome)
+        {
+
+            this.nif = nif;
+            this.nome = nome;
+
+        }
+
+    }
+
+}
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RAFAEL_ANA
+{
+    internal class Compras
+    {
+
+        public string data;
+        public float valor_total;
+
+        public List<Livro> lc_livros = new List<Livro>();
+
+        public Compras ()
+        {
+
+            data = "";
+            valor_total = 0f;
+
+        }
+        public Compras (string data, float valor_total, List<Livro> lc_livros)
+        {
+
+            this.data = data;
+            this.valor_total = valor_total;
+            this.lc_livros = lc_livros;
+
+        }
+
+    }
+
+}
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RAFAEL_ANA
+{
+    internal class Livro
+    {
+
+        public string titulo;
+        public string autor;
+        public float preco;
+        public int stock;
+
+        public Livro(string titulo, string autor, float preco, int stock)
+        {
+
+            this.titulo = titulo;
+            this.autor = autor;
+            this.preco = preco;
+            this.stock = stock;
+
+        }
+
+    }
+
+}
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+
+namespace RAFAEL_ANA
+{
+    internal class Loja
+    {
+
+        public string nome_loja = "Loja";
+        public string morada = "Rua dos Pães";
+
+        // -------------------------------//
+
+        public List<Livro> lista_livros = new List<Livro>();
+        public List<Cliente> lista_cliente = new List<Cliente>();
+
+        // -------------------------------//
+
+    }
+
+}
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+using System.Security.AccessControl;
+using System.IO;
+
+namespace RAFAEL_ANA
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Cliente> listacli = new List<Cliente>();
+            List<Livro> livros_loja = new List<Livro>();
+            List<Livro> lista_compras = new List<Livro>();
+
+            Livro listali1 = new Livro("O Senhor dos Anéis", "J.R.R Tolkien", 100.00f, 20);
+            Livro listali2 = new Livro("A Good Girl's Guide to Murder", "Ana Reis", 20.00f, 20);
+            Livro listali3 = new Livro("D&D 3.5 Ed", "Dragongods", 65.00f, 20);
+            Livro listali4 = new Livro("The Hobbit", "J.R.R Tolkien", 80.00f, 20);
+            Livro listali5 = new Livro("Vampire - The Masquerade 3th Ed", "Whitewolf", 90.00f, 20);
+
+            Cliente newcli1 = new Cliente("123456789", "Manuel Padeiro");
+            Cliente newcli2 = new Cliente("123456788", "Maria Croissant");
+            Cliente newcli3 = new Cliente("123456787", "José Maria");
+            Cliente newcli4 = new Cliente("123456786", "João Gomes");
+            Cliente newcli5 = new Cliente("123456785", "Maria Padeira");
+
+            listacli.Add(newcli1);
+            listacli.Add(newcli2);
+            listacli.Add(newcli3);
+            listacli.Add(newcli4);
+            listacli.Add(newcli5);
+
+            livros_loja.Add(listali1);
+            livros_loja.Add(listali2);
+            livros_loja.Add(listali3);
+            livros_loja.Add(listali4);
+            livros_loja.Add(listali5);
+
+            while (true)
+            {
+
+                Console.WriteLine("");
+                Console.WriteLine("Menu:");
+                Console.WriteLine("1. Registrar novo cliente");
+                Console.WriteLine("2. Listar clientes");
+                Console.WriteLine("3. Adicionar novo livro à loja");
+                Console.WriteLine("4. Listar livros na loja");
+                Console.WriteLine("5. Registar Compra");
+                Console.WriteLine("6. Sair do programa");
+                Console.Write("Escolha uma opção: ");
+
+                string opcao = Console.ReadLine();
+
+                switch (opcao)
+                {
+                    case "1":
+                        Console.Write("Insira o nome do cliente (EXIT para parar): ");
+                        string nome = Console.ReadLine();
+                        if (nome.ToLower() == "exit")
+                            break;
+                        Console.Write("Insira o nif do cliente: ");
+                        string nif = Console.ReadLine();
+                        Cliente cliente = new Cliente(nif, nome);
+                        listacli.Add(cliente);
+                        break;
+
+                    case "2":
+                        Console.WriteLine(" ");
+                        Console.WriteLine("---------------------------------------------------");
+                        Console.WriteLine("Lista de Clientes:");
+                        foreach (Cliente cliente2 in listacli)
+                        {
+
+                            Console.WriteLine($"Nif: {cliente2.nif}, Nome: {cliente2.nome}");
+
+                        }
+                        Console.WriteLine("---------------------------------------------------");
+                        Console.WriteLine(" ");
+
+                        break;
+
+                    case "3":
+
+                        Console.WriteLine(" ");
+                        Console.Write("Insira o título do livro: ");
+                        string titulo = Console.ReadLine();
+                        Console.Write("Insira o autor do livro: ");
+                        string autor = Console.ReadLine();
+                        Console.Write("Insira o preço do livro: ");
+                        float preco;
+                        float.TryParse(Console.ReadLine(), out preco);
+                        Console.Write("Insira o estoque do livro: ");
+                        int estoque;
+                        int.TryParse(Console.ReadLine(), out estoque);
+                        Console.WriteLine(" ");
+                        Livro livro = new Livro(titulo, autor, preco, estoque);
+                        livros_loja.Add(livro);
+                        break;
+
+                    case "4":
+                        // Listar livros na loja
+                        Console.WriteLine(" ");
+                        Console.WriteLine("---------------------------------------------------");
+                        Console.WriteLine("Livros na Loja:");
+                        foreach (Livro livroLoja in livros_loja)
+                        {
+                            Console.WriteLine($"Título: {livroLoja.titulo}, Autor: {livroLoja.autor}, Preço: {livroLoja.preco}, Estoque: {livroLoja.stock}");
+                        }
+                        Console.WriteLine("---------------------------------------------------");
+                        Console.WriteLine(" ");
+
+                        break;
+
+                    case "5":
+
+                        Console.Write("Insira o Nif: ");
+                        string lv_nif = Console.ReadLine();
+                        string nomeCliente = "";
+
+                        for (int i = 0; i < listacli.Count; i++)
+                        {
+                            if (lv_nif == listacli[i].nif)
+                            {
+
+                                nomeCliente = listacli[i].nome;
+
+                                Console.WriteLine(" ");
+                                Console.WriteLine("---------------------------------------------------");
+                                Console.WriteLine("Escolha um dos nossos Livros:");
+
+                                foreach (Livro livroLoja in livros_loja)
+                                {
+                                    Console.WriteLine($"Título: {livroLoja.titulo}, Autor: {livroLoja.autor}, Preço: {livroLoja.preco}, Estoque: {livroLoja.stock}");
+                                }
+
+                                Console.WriteLine("---------------------------------------------------");
+                                Console.WriteLine(" ");
+
+                                float total_compras = 0;
+                                while (true)
+                                {
+                                    Console.Write("Digite o nome do Livro: ");
+                                    string lv_nomeli = Console.ReadLine();
+
+                                    bool livroEncontrado = false;
+                                    foreach (Livro livroLoja in livros_loja)
+                                    {
+                                        if (lv_nomeli == livroLoja.titulo)
+                                        {
+                                            livroEncontrado = true;
+                                            lista_compras.Add(livroLoja);
+                                            livroLoja.stock = livroLoja.stock - 1;
+                                            total_compras += livroLoja.preco;
+
+                                            Console.WriteLine(" ");
+                                            Console.WriteLine("Adicionado ao Carrinho: ");
+
+                                            for (int k = 0; k < lista_compras.Count; k++ ) {
+
+                                                Console.WriteLine($"Título: {lista_compras[k].titulo}, Autor: {lista_compras[k].autor}, Preço: {lista_compras[k].preco}");
+
+                                            }
+
+                                            Console.WriteLine($"Valor Total: {total_compras}");
+
+                                            break; 
+                                        }
+                                    }
+
+                                    if (!livroEncontrado)
+                                    {
+                                        Console.WriteLine("Livro não encontrado na loja.");
+                                        continue;
+                                    }
+
+                                    Console.Write("Deseja continuar comprando? (S/N): ");
+                                    string continuar = Console.ReadLine();
+
+                                    if (continuar.ToUpper() != "S" && continuar.ToUpper() != "N")
+                                    {
+                                        Console.WriteLine("Opção inválida. Digite 'S' para continuar comprando ou 'N' para sair.");
+                                        continue; 
+                                    }
+                                    else if (continuar.ToUpper() == "N")
+                                    {
+                                        Console.WriteLine("Finalizando a compra e emitindo pagamento...");
+                                        string CaminhoArquivo = @"C:\0814\RAFAEL_ANA\arquivo.txt";
+
+                                        using (StreamWriter escritor = new StreamWriter(CaminhoArquivo))
+                                        {
+
+                                            DateTime dataHoraAtual = DateTime.Now;
+
+                                            escritor.WriteLine("Fatura: ");
+                                            escritor.WriteLine($"Data e Hora: {dataHoraAtual}");
+                                            escritor.WriteLine($"NIF: {lv_nif}");
+                                            escritor.WriteLine($"Nome: {nomeCliente}");
+
+                                            foreach (Livro livroc in lista_compras)
+                                            {
+                                                escritor.WriteLine($"Título: {livroc.titulo}, Autor: {livroc.autor}, Preço: {livroc.preco}");
+                                            }
+                                            escritor.WriteLine($"Valor Total: {total_compras}");
+                                        }
+
+                                        using (StreamReader leitor = new StreamReader(CaminhoArquivo))
+                                        {
+                                            string linha;
+
+                                            while ((linha = leitor.ReadLine()) != null)
+                                            {
+                                                Console.WriteLine(linha);
+                                            }
+
+                                        }
+
+                                        break; 
+                                    }
+                                }
+                            }
+                        }
+
+                        break; 
+
+                    case "6":
+                        Console.WriteLine("Encerrando o programa...");
+                        return;
+
+                    default:
+                        Console.WriteLine("Opção inválida. Por favor, insira uma opção válida.");
+                        break;
+                }
+            }
+        }
+    }
+}
